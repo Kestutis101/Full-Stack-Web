@@ -4,14 +4,18 @@ import {
   getAllClient,
   updateClient,
   deleteClient,
-} from "../controllers/index.js";
-import { userDoesntExist } from "../middleware/middleware.js";
+} from "../controllers/client.js";
+import { clientDoesntExist } from "../middleware/middleware.js";
+import { login, register } from "../controllers/user.js";
 
 const router = express.Router();
 
-router.get("/client", getAllClient);
-router.post("/client", createClient);
-router.put("/client/:id", userDoesntExist, updateClient);
-router.delete("/client/:id", userDoesntExist, deleteClient);
+router.get("/clients", getAllClient);
+router.post("/clients/register", createClient);
+router.put("/clients/:id", clientDoesntExist, updateClient);
+router.delete("/clients/:id", clientDoesntExist, deleteClient);
+
+router.post("/login", login);
+router.post("/register", register);
 
 export default router;

@@ -1,19 +1,18 @@
-import User from "../Model/UserModel.js";
+import Client from "../Model/ClientModel.js";
 
 export async function createClient(req, res) {
   try {
-    const { name, surname, email, registeredDate } = req.body;
+    const { fullName, email, registeredDate } = req.body;
 
-    const newUser = new User({
-      name,
-      surname,
+    const newClient = new Client({
+      fullName,
       email,
       registeredDate,
     });
 
-    const createdUser = await newUser.save();
+    const createdClient = await newClient.save();
 
-    res.status(201).json(createdUser);
+    res.status(201).json(createdClient);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -21,8 +20,8 @@ export async function createClient(req, res) {
 
 export async function getAllClient(req, res) {
   try {
-    const users = await User.find();
-    res.status(200).json(users);
+    const client = await Client.find();
+    res.status(200).json(client);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -31,11 +30,11 @@ export async function getAllClient(req, res) {
 export async function updateClient(req, res) {
   try {
     const { id } = req.params;
-    const { name, surname, email, registeredDate } = req.body;
+    const { fullName, email, registeredDate } = req.body;
 
-    const updatedClient = await User.findByIdAndUpdate(
+    const updatedClient = await Client.findByIdAndUpdate(
       id,
-      { name, surname, email, registeredDate },
+      { fullName, email, registeredDate },
       { new: true }
     );
 
@@ -49,15 +48,10 @@ export async function deleteClient(req, res) {
   try {
     const { id } = req.params;
 
-    const deletedClient = await User.findByIdAndDelete(id);
-
+    const deletedClient = await Client.findByIdAndDelete(id);
 
     res.status(200).json(deletedClient);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 }
-// name
-// surname
-// email
-// registeredDate

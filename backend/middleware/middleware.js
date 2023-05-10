@@ -1,12 +1,12 @@
-import User from "../Model/UserModel.js";
+import Client from "../Model/ClientModel.js";
 
-export async function userDoesntExist(req, res, next) {
+export async function clientDoesntExist(req, res, next) {
   const { id } = req.params;
 
   try {
-    const user = await User.findById(id);
+    const client = await Client.findById(id);
 
-    if (!user) {
+    if (!client) {
       return res.status(404).json({ error: "Šis vartotojas neegzistuoja" });
     }
 
