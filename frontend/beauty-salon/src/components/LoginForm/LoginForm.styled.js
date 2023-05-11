@@ -11,9 +11,9 @@ export const StyledMainDiv = styled.div`
   h3 {
     display: block;
     text-align: center;
-    font-size: 2em;
+    font-size: 1.8em;
     :first-of-type {
-      font-size: 3em;
+      font-size: 2.5em;
       margin: 0;
     }
     :nth-of-type(2) {
@@ -37,7 +37,7 @@ export const StyledMainDiv = styled.div`
 
     label {
       padding: 0.5em;
-      font-size: 1.8em;
+      font-size: 1.2em;
       width: 6%;
     }
 
@@ -45,7 +45,7 @@ export const StyledMainDiv = styled.div`
       border: 1px solid grey;
       border-radius: 10px;
       padding: 0.8em;
-      font-size: 1em;
+      font-size: 0.8em;
       :focus {
         outline: none;
         background-color: #f8dda3;
@@ -56,7 +56,7 @@ export const StyledMainDiv = styled.div`
     border-radius: 10px;
     background-color: #f1f1f1;
     box-shadow: none;
-    font-size: 0.9em;
+    font-size: 0.7em;
     outline: none;
     cursor: pointer;
     padding: 1em;
@@ -66,5 +66,13 @@ export const StyledMainDiv = styled.div`
       background-color: #c79e47;
       box-shadow: 1px 1px 3px 2px grey;
     }
+  }
+  p {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+      sans-serif;
+    font-size: 14px;
+    color: red;
+    margin: 0;
   }
 `;

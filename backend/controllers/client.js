@@ -48,7 +48,7 @@ export async function deleteClient(req, res) {
   try {
     const { id } = req.params;
 
-    const deletedClient = await Client.findByIdAndDelete(id);
+    const deletedClient = await Client.findByIdAndDelete({ _id: id });
 
     res.status(200).json(deletedClient);
   } catch (error) {

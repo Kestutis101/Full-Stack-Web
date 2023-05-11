@@ -7,7 +7,7 @@ export default function LoginForm({
   password,
   setPassword,
   action,
-  hint,
+  errorMessage,
 }) {
   return (
     <StyledMainDiv>
@@ -38,8 +38,8 @@ export default function LoginForm({
         </div>
         <div>
           <button type='submit'>Submit</button>
-          <p>{hint}</p>
         </div>
+        <p>{errorMessage}</p>
       </form>
     </StyledMainDiv>
   );
