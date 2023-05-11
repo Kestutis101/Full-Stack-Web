@@ -11,7 +11,7 @@ export async function clientDoesntExist(req, res, next) {
     }
 
     next();
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
 }
