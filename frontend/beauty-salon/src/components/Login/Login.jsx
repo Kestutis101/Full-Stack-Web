@@ -17,7 +17,7 @@ export default function Login() {
       console.log(response);
 
       localStorage.setItem("jwtToken", response.data.token);
-      window.location.assign("http://localhost:3000/main");
+      window.location.assign("http://localhost:3000/clients");
     } catch (error) {
       if (error.response.status === 404) {
         setErrorMessage("User with this email not found");

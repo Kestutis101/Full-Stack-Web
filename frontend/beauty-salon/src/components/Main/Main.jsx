@@ -55,8 +55,8 @@ export default function Main() {
 
   return (
     <>
+      <Header />
       <StyledMainDiv>
-        <Header />
         <StyledHeadingOne>Clients</StyledHeadingOne>
         <StyledTable>
           <tbody>

@@ -76,3 +76,5 @@ export const StyledMainDiv = styled.div`
     margin: 0;
   }
 `;
+
+export const StyledImg = styled.img``;

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import jwtDecode from "jwt-decode";
-import { StyledMainDiv } from "./Header.styled";
+import { StyledDiv, StyledImg } from "./Header.styled";
 
 export default function Header() {
   function isLoggedIn() {
@@ -13,13 +13,22 @@ export default function Header() {
     return decodedToken.exp > Date.now() / 1000;
   }
   return (
-    <StyledMainDiv>
-      <div>
-        <p>Hello!</p>
-        {isLoggedIn() && <p>You are logged in</p>}
-      </div>
-      <Link to='/clients'>Clients</Link>
-      <Link to='/createClient'>Create client</Link>
-    </StyledMainDiv>
+    <>
+      <StyledDiv>
+        <StyledImg
+          src='https://png.pngtree.com/png-clipart/20211116/original/pngtree-salon-logo-png-image_6942006.png'
+          alt='logo'
+        />
+        <div>
+          <p>Hello!</p>
+          {isLoggedIn() && <p>You are logged in</p>}
+        </div>
+
+        <nav>
+          <Link to='/clients'>Clients</Link>
+          <Link to='/createClient'>Create client</Link>
+        </nav>
+      </StyledDiv>
+    </>
   );
 }
