@@ -16,9 +16,7 @@ export const StyledTable = styled.table`
   margin-top: 20px;
 `;
 
-export const StyledTableRow = styled.tr`
-  text-decoration: underline;
-`;
+export const StyledTableRow = styled.tr``;
 
 export const StyledTableCell = styled.td`
   padding: 10px;

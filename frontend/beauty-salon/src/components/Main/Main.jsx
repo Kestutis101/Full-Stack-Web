@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Header from "../Header/Header";
+import Modal from "../Modal/Modal";
 import {
   StyledMainDiv,
   StyledHeadingOne,
@@ -15,30 +16,30 @@ export const DB_URL = "http://localhost:4000/";
 
 export default function Main() {
   const [users, setUsers] = useState([]);
-  // const [selectedUser, setSelectedUser] = useState(null);
-  // const [showModal, setShowModal] = useState(false);
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+
+  async function fetchUsers() {
+    try {
+      const response = await axios.get(DB_URL + "clients");
+      setUsers(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   useEffect(() => {
-    async function fetchUsers() {
-      try {
-        const response = await axios.get(DB_URL + "clients");
-        setUsers(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
     fetchUsers();
   }, []);
 
-  // function handleEditClick(user) {
-  //   console.log(user);
-  //   setSelectedUser(user);
-  //   setShowModal(true);
-  // }
+  function handleEditClick(user) {
+    setSelectedUser(user);
+    setShowModal(true);
+  }
 
-  // function handleCloseModal() {
-  //   setShowModal(false);
-  // }
+  function handleClose() {
+    setShowModal(false);
+  }
 
   function handleDelete(userId) {
     if (window.confirm("Are you sure you want to delete this user?")) {
@@ -49,6 +50,7 @@ export default function Main() {
         })
         .catch((error) => {
           console.log(error);
+          console.log(error.response.data);
         });
     }
   }
@@ -66,13 +68,13 @@ export default function Main() {
                 <StyledTableCell>{user.email}</StyledTableCell>
                 <StyledTableCell>
                   {new Date(user.registeredDate)
-                    .toLocaleString("lt-LT", { timeZone: "Europe/Vilnius" })
-                    .split(":")
-                    .slice(0, 2)
-                    .join(":")}
+                    .toLocaleString("lt-LT")
+                    .slice(0, -3)}
                 </StyledTableCell>
                 <StyledTableCell>
-                  <StyledButtonEdit>Edit</StyledButtonEdit>
+                  <StyledButtonEdit onClick={() => handleEditClick(user)}>
+                    Edit
+                  </StyledButtonEdit>
                 </StyledTableCell>
                 <StyledTableCell>
                   <StyledButtonDelete onClick={() => handleDelete(user._id)}>
@@ -82,18 +84,17 @@ export default function Main() {
               </StyledTableRow>
             ))}
           </tbody>
-          {/* <button onClick={() => handleEditClick(users)}>
-            Edit
-          </button> */}
         </StyledTable>
       </StyledMainDiv>
-      {/* {showModal && selectedUser && (
-        <ModificationModal
+      {showModal && selectedUser && (
+        <Modal
           user={selectedUser}
-          onClose={handleCloseModal}
-          show={showModal}
+          setUsers={setUsers}
+          onClose={handleClose}
+          show={showModal.toString()}
+          onUserListUpdate={fetchUsers}
         />
-      )} */}
+      )}
     </>
   );
 }

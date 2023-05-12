@@ -14,6 +14,14 @@ export default function RegisterForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const fullNameRegex = /^(\w+)\s(\w+)$/;
+    if (!fullName.match(fullNameRegex)) {
+      setErrorMessage(
+        "Invalid full name format. Please provide first name and last name"
+      );
+      return;
+    }
+
     const formData = {
       fullName,
       email,
@@ -65,10 +73,9 @@ export default function RegisterForm() {
           <label>
             Registered Date:
             <input
-              type='datetime-local(lt-LT)'
+              type='datetime-local'
               value={registeredDate}
               onChange={(e) => setRegisteredDate(e.target.value)}
-              placeholder='2000-01-01 00:00'
             />
           </label>
         </div>
@@ -77,7 +84,7 @@ export default function RegisterForm() {
           style={{
             textAlign: "center",
             fontSize: "2rem",
-            color: postedClient ? "rgba(167, 167, 167, 0.8)" : "red",
+            color: postedClient ? "black" : "red",
           }}
         >
           {postedClient || errorMessage}
