@@ -6,7 +6,7 @@ export const StyledForm = styled.form`
 
   label {
     display: flex;
-    width: 30%;
+    width: 35%;
     margin: 0 auto 1em;
     justify-content: space-between;
     font-size: 1.4em;

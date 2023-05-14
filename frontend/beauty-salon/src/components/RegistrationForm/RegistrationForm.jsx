@@ -29,13 +29,15 @@ export default function RegisterForm() {
     try {
       const response = await axios.post(DB_URL + "clients/register", formData);
       console.log(response.data);
-      setPostedClient("User was successfully added, redirecting to clients...");
+      setPostedClient(
+        "Client was successfully created, redirecting to clients..."
+      );
       setTimeout(() => {
         window.location.href = "http://localhost:3000/clients";
       }, 3000);
     } catch (error) {
       error.response && error.response.status === 409
-        ? setErrorMessage("User or email already exists")
+        ? setErrorMessage("Client or email already exists")
         : console.log(error);
     }
   };
@@ -69,7 +71,7 @@ export default function RegisterForm() {
         </div>
         <div>
           <label>
-            Registered Date:
+            Registration Date:
             <input
               type='datetime-local'
               value={registeredDate}
