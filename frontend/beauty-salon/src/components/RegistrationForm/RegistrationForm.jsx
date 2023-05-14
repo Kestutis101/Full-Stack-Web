@@ -16,9 +16,7 @@ export default function RegisterForm() {
 
     const fullNameRegex = /^(\w+)\s(\w+)$/;
     if (!fullName.match(fullNameRegex)) {
-      setErrorMessage(
-        "Invalid full name format. Please provide first name and last name"
-      );
+      setErrorMessage("Please provide first name and last name");
       return;
     }
 

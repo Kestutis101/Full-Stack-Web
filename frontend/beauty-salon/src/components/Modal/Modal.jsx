@@ -12,32 +12,23 @@ export default function Modal({ user, onClose, show, onUserListUpdate }) {
   );
   const [fullNameError, setFullNameError] = useState("");
   const [emailError, setEmailError] = useState("");
-  const [isUnchanged, setIsUnchanged] = useState(true);
-  const [isSaveClicked, setIsSaveClicked] = useState(false);
+  const namePattern = /^[A-Za-z]+\s[A-Za-z]+$/;
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   async function handleUpdate() {
     try {
-      const namePattern = /^[A-Za-z]+\s[A-Za-z]+$/;
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
       if (!namePattern.test(fullName)) {
-        setFullNameError("Please enter a valid full name (e.g., First Last)");
-        setIsUnchanged(false);
-        return;
+        return setFullNameError(
+          "Please enter a valid full name (e.g., First Last)"
+        );
       } else {
         setFullNameError("");
       }
 
       if (!emailPattern.test(email)) {
-        setEmailError("Please enter a valid email address");
-        setIsUnchanged(false);
-        return;
+        return setEmailError("Please enter a valid email address");
       } else {
         setEmailError("");
-      }
-
-      if (user.fullName === fullName && user.email === email) {
-        setIsUnchanged(true);
       }
 
       await axios.put(DB_URL + `clients/${user._id}`, {
@@ -47,10 +38,7 @@ export default function Modal({ user, onClose, show, onUserListUpdate }) {
       });
 
       onUserListUpdate();
-      setIsSaveClicked(true);
-      setIsUnchanged(true);
-      setFullNameError("");
-      setEmailError("");
+      onClose();
     } catch (error) {
       console.log(error);
     }
@@ -62,14 +50,13 @@ export default function Modal({ user, onClose, show, onUserListUpdate }) {
         <StyledCard>
           <h2>Edit User Info</h2>
           <label>
-            First Name:
+            Full Name:
             <input
               type='text'
               value={fullName}
               onChange={(e) => {
                 setFullName(e.target.value);
                 setFullNameError("");
-                setIsUnchanged(false);
               }}
             />
             {fullNameError && <span>{fullNameError}</span>}
@@ -82,7 +69,6 @@ export default function Modal({ user, onClose, show, onUserListUpdate }) {
               onChange={(e) => {
                 setEmail(e.target.value);
                 setEmailError("");
-                setIsUnchanged(false);
               }}
             />
             {emailError && <span>{emailError}</span>}
@@ -97,9 +83,6 @@ export default function Modal({ user, onClose, show, onUserListUpdate }) {
           </label>
           <button onClick={handleUpdate}>Save</button>
           <button onClick={onClose}>Cancel</button>
-          {isUnchanged && isSaveClicked && (
-            <span className='nothing-change'>Nothing has been changed.</span>
-          )}
         </StyledCard>
       </StyledBackground>
     </div>

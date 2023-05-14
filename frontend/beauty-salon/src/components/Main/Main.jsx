@@ -89,8 +89,8 @@ export default function Main() {
       {showModal && selectedUser && (
         <Modal
           user={selectedUser}
-          setUsers={setUsers}
           onClose={handleClose}
+          setShowModal={setShowModal}
           show={showModal.toString()}
           onUserListUpdate={fetchUsers}
         />
