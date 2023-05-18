@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import LoginForm from "../../molecules/LoginForm/LoginForm";
 import { useNavigate } from "react-router-dom";
+import { DB_URL } from "../Main/Main";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -12,7 +13,7 @@ export default function Login() {
   async function handleLogin(e) {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:4000/login", {
+      const response = await axios.post(DB_URL + "login", {
         email,
         password,
       });
