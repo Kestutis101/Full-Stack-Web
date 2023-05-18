@@ -1,6 +1,6 @@
 import Client from "../Model/ClientModel.js";
 
-export async function clientDoesntExist(req, res, next) {
+export async function clientDoestExist(req, res, next) {
   const { id } = req.params;
 
   try {

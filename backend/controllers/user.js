@@ -48,7 +48,15 @@ export async function register(req, res) {
     });
     await newUser.save();
 
-    res.status(201).json({ message: "registration successful" });
+    res.status(201).json({ message: "Registration successful" });
+  } catch (error) {
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+}
+
+export function handleBadRequests(req, res) {
+  try {
+    res.status(404).json({ message: "Bad Request, Not Found" });
   } catch (error) {
     res.status(500).json({ message: "Internal Server Error" });
   }
