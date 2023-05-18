@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 import LoginForm from "../../molecules/LoginForm/LoginForm";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
 
   async function handleLogin(e) {
     e.preventDefault();
@@ -14,10 +16,9 @@ export default function Login() {
         email,
         password,
       });
-      console.log(response);
 
       localStorage.setItem("jwtToken", response.data.token);
-      window.location.assign("http://localhost:3000/clients");
+      navigate("/clients");
     } catch (error) {
       if (error.response.status === 404) {
         setErrorMessage("User with this email not found");

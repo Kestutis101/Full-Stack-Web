@@ -17,9 +17,9 @@ router.get("/clients", getAllClient);
 router.post("/clients/register", checkClientExists, createClient);
 router.put("/clients/:id", clientDoestExist, updateClient);
 router.delete("/clients/:id", clientDoestExist, deleteClient);
-router.all("/*", handleBadRequests);
 
 router.post("/login", login);
 router.post("/register", register);
+router.all("/*", handleBadRequests);
 
 export default router;

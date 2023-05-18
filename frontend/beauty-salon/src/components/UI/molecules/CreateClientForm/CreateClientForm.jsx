@@ -27,8 +27,7 @@ export default function CreateClientForm() {
     };
 
     try {
-      const response = await axios.post(DB_URL + "clients/register", formData);
-      console.log(response.data);
+      await axios.post(DB_URL + "clients/register", formData);
       setPostedClient(
         "Client was successfully created, redirecting to clients..."
       );
