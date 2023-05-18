@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import moment from "moment";
 import { StyledBackground, StyledCard } from "./Modal.styled";
-import { DB_URL } from "../Main/Main";
+import { DB_URL } from "../../organisms/Main/Main";
 
 export default function Modal({ user, onClose, show, onUserListUpdate }) {
   const [fullName, setFullName] = useState(user.fullName);

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import LoginForm from "../LoginForm/LoginForm";
+import LoginForm from "../../molecules/LoginForm/LoginForm";
 
 export default function Login() {
   const [email, setEmail] = useState("");

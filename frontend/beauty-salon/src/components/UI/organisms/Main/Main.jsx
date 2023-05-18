@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Header from "../Header/Header";
-import Modal from "../Modal/Modal";
+import Header from "../../atoms/Header/Header";
+import Modal from "../../atoms/Modal/Modal";
 import {
   StyledMainDiv,
   StyledHeadingOne,

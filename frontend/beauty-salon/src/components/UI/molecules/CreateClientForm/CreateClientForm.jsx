@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { DB_URL } from "../Main/Main";
-import { StyledForm } from "./RegistrationForm.styled";
-import Header from "../Header/Header";
+import { DB_URL } from "../../organisms/Main/Main";
+import { StyledForm } from "./CreateClientForm.styled";
+import Header from "../../atoms/Header/Header";
 
-export default function RegisterForm() {
+export default function CreateClientForm() {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [registeredDate, setRegisteredDate] = useState("");
