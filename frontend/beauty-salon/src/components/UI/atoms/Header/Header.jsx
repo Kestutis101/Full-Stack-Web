@@ -1,32 +1,43 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import jwtDecode from "jwt-decode";
 import { StyledDiv, StyledImg } from "./Header.styled";
 
 export default function Header() {
-  function isLoggedIn() {
-    const jwtToken = localStorage.getItem("jwtToken");
-    if (!jwtToken) {
-      return false;
+  const [showLogOut, setShowLogOut] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("jwtToken")) {
+      setShowLogOut(true);
+    } else {
+      setShowLogOut(false);
     }
-    const decodedToken = jwtDecode(jwtToken);
-    return decodedToken.exp > Date.now() / 1000;
+  }, []);
+
+  function handleLogout() {
+    localStorage.removeItem("jwtToken");
+    window.alert("You have successfully logged out");
   }
+
   return (
     <>
       <StyledDiv>
-        <StyledImg
-          src='https://png.pngtree.com/png-clipart/20211116/original/pngtree-salon-logo-png-image_6942006.png'
-          alt='logo'
-        />
         <div>
-          <p>Hello!</p>
-          {isLoggedIn() && <p>You are logged in</p>}
+          <StyledImg
+            src='https://png.pngtree.com/png-clipart/20211116/original/pngtree-salon-logo-png-image_6942006.png'
+            alt='logo'
+          />
+          <p>Beauty Salon</p>
         </div>
-
         <nav>
-          <Link to='/clients'>Clients</Link>
+          {showLogOut && (
+            <Link to='/' onClick={handleLogout}>
+              Log Out
+            </Link>
+          )}
+          <Link to='/'>Main Page</Link>
+          <Link to='/login'>Log In</Link>
           <Link to='/createClient'>Create client</Link>
+          <Link to='/clients'>Clients</Link>
         </nav>
       </StyledDiv>
     </>
