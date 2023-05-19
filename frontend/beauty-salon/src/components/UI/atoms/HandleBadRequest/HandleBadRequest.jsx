@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { DB_URL } from "../../organisms/Main/Main";
+import { DB_URL } from "../../organisms/Clients/Clients";
 import { StyledPar } from "./HandleBadRequest.styled";
 import { useNavigate } from "react-router-dom";
 
