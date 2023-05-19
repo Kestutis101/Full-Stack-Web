@@ -1,53 +1,53 @@
 import styled from "styled-components";
 
 export const StyledMainDiv = styled.div`
-  width: 80%;
   font-family: "Caveat", cursive;
-  font-size: 1.5em;
-  margin: 0 auto;
+  width: 80%;
+  margin: auto;
+
+  footer {
+    text-align: center;
+    margin: 2rem auto;
+  }
 `;
-
-export const StyledHeadingOne = styled.h1`
-  text-align: center;
-`;
-
-export const StyledTable = styled.table`
-  width: 100%;
-  margin-top: 20px;
-`;
-
-export const StyledTableRow = styled.tr``;
-
-export const StyledTableCell = styled.td`
-  padding: 10px;
-`;
-
-export const StyledButtonEdit = styled.button`
-  background-color: #fcf2dc;
-  border: none;
-  border-radius: 5px;
-  box-shadow: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, box-shadow 0.3s;
-
-  :hover {
-    background-color: #eaae41;
-    box-shadow: 1px 1px 3px 1px;
+export const StyledDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  text-align: justify;
+  margin: auto;
+  font-size: 1.3em;
+  img {
+    width: 200px;
   }
 `;
 
-export const StyledButtonDelete = styled.button`
-  background-color: #fcf2dc;
-  border: none;
-  border-radius: 5px;
-  box-shadow: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, box-shadow 0.3s;
+export const StyledImgDiv = styled.div`
+  display: flex;
+  justify-content: start;
+  text-align: justify;
+  overflow-x: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: #888888 #f5f5f5;
 
-  :first-child:hover {
-    background-color: red;
-    box-shadow: 1px 1px 3px 1px;
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #888888;
+    border-radius: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
+    border-radius: 8px;
+  }
+`;
+export const StyledImg = styled.img`
+  width: 30%;
+  margin-right: 1em;
+  :last-child {
+    margin-right: 0;
   }
 `;
