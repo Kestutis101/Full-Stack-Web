@@ -1,5 +1,6 @@
 import React from "react";
 import { StyledMainDiv } from "./LoginForm.styled";
+import { Link } from "react-router-dom";
 
 export default function LoginForm({
   email,
@@ -11,11 +12,7 @@ export default function LoginForm({
 }) {
   return (
     <StyledMainDiv>
-      <img
-        src='https://png.pngtree.com/png-clipart/20211116/original/pngtree-salon-logo-png-image_6942006.png'
-        alt='logo'
-      />
-      <h3>Welcome to Beauty Salon</h3>
+      <h3>Welcome</h3>
       <h3>Please Log In</h3>
       <form onSubmit={action}>
         <div>
@@ -39,6 +36,9 @@ export default function LoginForm({
         <div>
           <button type='submit'>Submit</button>
         </div>
+        <p className='not-a-user'>
+          Not a User? <Link to='/signIn'>Sign in</Link>
+        </p>
         <p>{errorMessage}</p>
       </form>
     </StyledMainDiv>
