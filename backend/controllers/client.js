@@ -2,10 +2,11 @@ import Client from "../Model/ClientModel.js";
 
 export async function createClient(req, res) {
   try {
-    const { fullName, email, registeredDate } = req.body;
+    const { name, surname, email, registeredDate } = req.body;
 
     const newClient = new Client({
-      fullName,
+      name,
+      surname,
       email,
       registeredDate,
     });
@@ -18,7 +19,7 @@ export async function createClient(req, res) {
   }
 }
 
-export async function getAllClient(req, res) {
+export async function getAllClients(req, res) {
   try {
     const client = await Client.find();
     res.status(200).json(client);
@@ -30,11 +31,11 @@ export async function getAllClient(req, res) {
 export async function updateClient(req, res) {
   try {
     const { id } = req.params;
-    const { fullName, email, registeredDate } = req.body;
+    const { name, surname, email, registeredDate } = req.body;
 
     const updatedClient = await Client.findByIdAndUpdate(
       id,
-      { fullName, email, registeredDate },
+      { name, surname, email, registeredDate },
       { new: true }
     );
 

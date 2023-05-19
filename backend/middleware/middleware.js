@@ -17,11 +17,11 @@ export async function clientDoestExist(req, res, next) {
 }
 
 export async function checkClientExists(req, res, next) {
-  const { fullName, email } = req.body;
+  const { name, surname, email } = req.body;
 
   try {
     const existingClient = await Client.findOne({
-      $or: [{ fullName: fullName }, { email: email }],
+      $or: [{ name }, { surname }, { email }],
     });
 
     if (existingClient) {

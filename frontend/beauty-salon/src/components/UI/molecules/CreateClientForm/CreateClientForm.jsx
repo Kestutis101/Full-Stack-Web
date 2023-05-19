@@ -1,27 +1,47 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { DB_URL } from "../../organisms/Main/Main";
 import { StyledForm } from "./CreateClientForm.styled";
 import Header from "../../atoms/Header/Header";
+import { emailPattern } from "../../atoms/Modal/Modal";
 
 export default function CreateClientForm() {
-  const [fullName, setFullName] = useState("");
+  const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
   const [registeredDate, setRegisteredDate] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [postedClient, setPostedClient] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const fullNameRegex = /^(\w+)\s(\w+)$/;
-    if (!fullName.match(fullNameRegex)) {
-      setErrorMessage("Please provide first name and last name");
-      return;
+    if (name.length < 3) {
+      return setErrorMessage(
+        "Please provide a name with at least 3 characters"
+      );
+    } else {
+      setErrorMessage("");
     }
 
+    if (surname.length < 3) {
+      return setErrorMessage(
+        "Please provide a last name with at least 3 characters"
+      );
+    } else {
+      setErrorMessage("");
+    }
+
+    if (!emailPattern.test(email)) {
+      return setErrorMessage("Please enter a valid email address");
+    } else {
+      setErrorMessage("");
+    }
     const formData = {
-      fullName,
+      name,
+      surname,
       email,
       registeredDate,
     };
@@ -29,12 +49,13 @@ export default function CreateClientForm() {
     try {
       await axios.post(DB_URL + "clients/register", formData);
       setPostedClient(
-        "Client was successfully created, redirecting to clients..."
+        "Client was successfully created, redirecting to clients in..."
       );
       setTimeout(() => {
-        window.location.href = "http://localhost:3000/clients";
+        navigate("/clients");
       }, 3000);
     } catch (error) {
+      console.log(error);
       error.response && error.response.status === 409
         ? setErrorMessage("Client or email already exists")
         : console.log(error);
@@ -48,12 +69,30 @@ export default function CreateClientForm() {
         <div>
           <h1>Client Registration</h1>
           <label>
-            Full name:
+            Name:
             <input
               type='text'
-              value={fullName}
-              onChange={(e) => setFullName(e.target.value)}
-              placeholder='Name Surname'
+              value={name}
+              onChange={(e) => {
+                setName(e.target.value);
+                setErrorMessage("");
+              }}
+              placeholder='Name'
+              required
+            />
+          </label>
+        </div>
+        <div>
+          <label>
+            Last Name:
+            <input
+              type='text'
+              value={surname}
+              onChange={(e) => {
+                setSurname(e.target.value);
+                setErrorMessage("");
+              }}
+              placeholder='Last Name'
             />
           </label>
         </div>
@@ -63,7 +102,10 @@ export default function CreateClientForm() {
             <input
               type='email'
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                setErrorMessage("");
+              }}
               placeholder='email@email.com'
             />
           </label>

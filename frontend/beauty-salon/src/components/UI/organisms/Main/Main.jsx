@@ -23,6 +23,7 @@ export default function Main() {
     try {
       const response = await axios.get(DB_URL + "clients");
       setUsers(response.data);
+      console.log(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -63,7 +64,9 @@ export default function Main() {
           <tbody>
             {users.map((user) => (
               <StyledTableRow key={user._id}>
-                <StyledTableCell>{user.fullName}</StyledTableCell>
+                <StyledTableCell>
+                  {user.name} {user.surname}
+                </StyledTableCell>
                 <StyledTableCell>{user.email}</StyledTableCell>
                 <StyledTableCell>
                   {new Date(user.registeredDate)
