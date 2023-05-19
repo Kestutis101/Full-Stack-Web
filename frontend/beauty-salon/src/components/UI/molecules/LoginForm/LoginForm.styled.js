@@ -17,7 +17,7 @@ export const StyledMainDiv = styled.div`
       margin: 0;
     }
     :nth-of-type(2) {
-      margin: 3em 0 1em 0;
+      margin: 2em 0 1em 0;
     }
   }
 
@@ -61,19 +61,33 @@ export const StyledMainDiv = styled.div`
     cursor: pointer;
     padding: 1em;
     width: 15%;
-    transition: background-color 0.5s, box-shadow 0.5s;
+    transition: background-color 0.5s, box-shadow 0.5s, color 0.5s;
     :hover {
       background-color: #c79e47;
       box-shadow: 1px 1px 3px 2px grey;
+      color: white;
     }
   }
   p {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
       Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
       sans-serif;
-    font-size: 14px;
+    font-size: 1em;
     color: red;
     margin: 0;
+  }
+  .not-a-user {
+    font-family: "Caveat", cursive;
+    color: black;
+    font-size: 1.5em;
+    a {
+      text-decoration: none;
+      color: #ffa201;
+      transition: color 0.4s;
+      :hover {
+        color: #755800;
+      }
+    }
   }
 `;
 

@@ -32,10 +32,11 @@ export const StyledForm = styled.form`
     cursor: pointer;
     padding: 1em;
     width: 15%;
-    transition: background-color 0.5s, box-shadow 0.5s;
+    transition: background-color 0.5s, box-shadow 0.5s, color 0.5s;
     :hover {
       background-color: #c79e47;
       box-shadow: 1px 1px 3px 2px grey;
+      color: white;
     }
   }
 `;
