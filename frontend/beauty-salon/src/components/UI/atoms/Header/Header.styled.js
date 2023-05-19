@@ -11,21 +11,26 @@ export const StyledDiv = styled.div`
 
   img {
     display: block;
-    margin: 0;
-    width: 15%;
+    margin: auto 0;
+    width: 20%;
+    height: 15%;
   }
 
   div {
     display: flex;
+    width: 50%;
 
     p {
       font-size: 2.5em;
-      margin-right: 1em;
     }
   }
 
   nav {
-    width: 28%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 30%;
   }
 
   a {
@@ -33,9 +38,6 @@ export const StyledDiv = styled.div`
     text-decoration: none;
     color: black;
     transition: color 0.4s;
-    :first-child {
-      padding-right: 10%;
-    }
     :hover {
       color: rgb(142, 97, 31, 0.5);
     }
