@@ -37,7 +37,7 @@ export default function LoginForm({
           <button type='submit'>Submit</button>
         </div>
         <p className='not-a-user'>
-          Not a User? <Link to='/signIn'>Sign in</Link>
+          Not a User? <Link to='/signUp'>Sign in</Link>
         </p>
         <p>{errorMessage}</p>
       </form>

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
-import LoginForm from "../../molecules/LoginForm/LoginForm";
+import LoginForm from "../../atoms/LoginForm/LoginForm";
 import { useNavigate } from "react-router-dom";
 import { DB_URL } from "../../organisms/Clients/Clients";
-import Header from "../Header/Header";
+import Header from "../../atoms/Header/Header";
 
 export default function Login({ handleLogged }) {
   const [email, setEmail] = useState("");
