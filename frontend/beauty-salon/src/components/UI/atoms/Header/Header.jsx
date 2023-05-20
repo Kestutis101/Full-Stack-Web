@@ -4,18 +4,29 @@ import { StyledDiv, StyledImg } from "./Header.styled";
 
 export default function Header() {
   const [showLogOut, setShowLogOut] = useState(false);
+  const [showLogIn, setShowLogIn] = useState(true);
+  const [showCreateClient, setShowCreateClient] = useState(false);
+  const [showClients, setShowClients] = useState(false);
 
   useEffect(() => {
-    if (localStorage.getItem("jwtToken")) {
+    const jwtToken = localStorage.getItem("jwtToken");
+    if (jwtToken) {
       setShowLogOut(true);
+      setShowLogIn(false);
+      setShowCreateClient(true);
+      setShowClients(true);
     } else {
       setShowLogOut(false);
+      setShowLogIn(true);
+      setShowCreateClient(false);
+      setShowClients(false);
     }
   }, []);
 
   function handleLogout() {
     localStorage.removeItem("jwtToken");
     window.alert("You have successfully logged out");
+    window.location.reload();
   }
 
   return (
@@ -29,15 +40,15 @@ export default function Header() {
           <p>Beauty Salon</p>
         </div>
         <nav>
+          <Link to='/'>Main Page</Link>
+          {showCreateClient && <Link to='/createClient'>Create client</Link>}
+          {showClients && <Link to='/clients'>Clients</Link>}
+          {showLogIn && <Link to='/login'>Log In</Link>}
           {showLogOut && (
             <Link to='/' onClick={handleLogout}>
               Log Out
             </Link>
           )}
-          <Link to='/'>Main Page</Link>
-          <Link to='/login'>Log In</Link>
-          <Link to='/createClient'>Create client</Link>
-          <Link to='/clients'>Clients</Link>
         </nav>
       </StyledDiv>
     </>

@@ -30,16 +30,20 @@ export const StyledDiv = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 30%;
+    width: auto;
   }
 
   a {
+    margin: 1em;
     font-size: 1.2em;
     text-decoration: none;
     color: black;
-    transition: color 0.4s;
+    position: relative;
+    top: 0;
+    transition: all 0.3s;
     :hover {
       color: rgb(142, 97, 31, 0.5);
+      top: -0.2em;
     }
   }
 `;
