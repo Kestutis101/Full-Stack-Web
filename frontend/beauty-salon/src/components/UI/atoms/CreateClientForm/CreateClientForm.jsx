@@ -4,7 +4,7 @@ import axios from "axios";
 import { DB_URL } from "../../organisms/Clients/Clients";
 import { StyledForm } from "./CreateClientForm.styled";
 import Header from "../../atoms/Header/Header";
-import { emailPattern } from "../../atoms/Modal/Modal";
+import { emailPattern } from "../../molecules/Modal/Modal";
 
 export default function CreateClientForm() {
   const [name, setName] = useState("");

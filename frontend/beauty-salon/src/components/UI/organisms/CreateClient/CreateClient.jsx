@@ -1,5 +1,5 @@
 import React from "react";
-import CreateClientForm from "../../molecules/CreateClientForm/CreateClientForm";
+import CreateClientForm from "../../atoms/CreateClientForm/CreateClientForm";
 export default function CreateClient() {
   return (
     <div>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Header from "../../atoms/Header/Header";
-import Modal from "../../atoms/Modal/Modal";
+import Modal from "../../molecules/Modal/Modal";
 import {
   StyledMainDiv,
   StyledHeadingOne,
