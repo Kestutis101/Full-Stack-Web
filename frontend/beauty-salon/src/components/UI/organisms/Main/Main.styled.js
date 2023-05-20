@@ -7,7 +7,7 @@ export const StyledMainDiv = styled.div`
 
   footer {
     text-align: center;
-    margin: 2rem auto;
+    margin: 0.5em auto 2rem;
   }
 `;
 export const StyledDiv = styled.div`
@@ -32,6 +32,7 @@ export const StyledImgDiv = styled.div`
 
   ::-webkit-scrollbar {
     width: 8px;
+    cursor: pointer;
   }
 
   ::-webkit-scrollbar-thumb {
@@ -49,5 +50,23 @@ export const StyledImg = styled.img`
   margin-right: 1em;
   :last-child {
     margin-right: 0;
+  }
+`;
+
+export const StyledIconsDiv = styled.div`
+  font-size: large;
+  margin: 2em auto 0;
+  text-align: center;
+
+  a {
+    margin: 0.5em;
+    color: black;
+    position: relative;
+    top: 0;
+    transition: all 0.3s;
+    :hover {
+      color: rgb(186, 131, 41, 0.9);
+      top: -0.2em;
+    }
   }
 `;
