@@ -39,7 +39,7 @@ export default function HandleBadRequest() {
 
   useEffect(() => {
     if (redirecting === 0) {
-      navigate("/clients");
+      navigate("/");
     }
   }, [navigate, redirecting]);
 

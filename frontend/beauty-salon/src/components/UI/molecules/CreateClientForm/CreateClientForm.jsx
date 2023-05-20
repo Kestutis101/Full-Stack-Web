@@ -56,8 +56,10 @@ export default function CreateClientForm() {
       }, 3000);
     } catch (error) {
       console.log(error);
-      error.response && error.response.status === 409
-        ? setErrorMessage("Client or email already exists")
+      error.response.status === 409
+        ? setErrorMessage(
+            "Client with this registration date is already exists"
+          )
         : console.log(error);
     }
   };
