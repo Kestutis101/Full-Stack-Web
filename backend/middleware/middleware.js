@@ -17,15 +17,17 @@ export async function clientDoestExist(req, res, next) {
 }
 
 export async function checkClientExists(req, res, next) {
-  const { name, surname, email } = req.body;
+  const { registeredDate } = req.body;
 
   try {
     const existingClient = await Client.findOne({
-      $or: [{ name }, { surname }, { email }],
+      $or: [{ registeredDate }],
     });
 
     if (existingClient) {
-      return res.status(409).json({ error: "User already exists" });
+      return res
+        .status(409)
+        .json({ error: "User already exists with This date" });
     }
 
     next();
