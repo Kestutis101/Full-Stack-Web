@@ -10,7 +10,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   function handleLogged() {
-    if (localStorage.getItem("jwtToken")) {
+    if (window.localStorage.getItem("jwtToken")) {
       setIsLoggedIn(true);
     } else {
       setIsLoggedIn(false);
@@ -19,7 +19,7 @@ function App() {
 
   return (
     <Routes>
-      <Route path='/' element={<Main />} />
+      <Route path='/' element={<Main handleLogged={handleLogged} />} />
       <Route path='/login' element={<Login handleLogged={handleLogged} />} />
       <Route
         path='/clients'

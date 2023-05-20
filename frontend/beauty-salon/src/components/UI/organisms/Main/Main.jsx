@@ -10,7 +10,8 @@ import {
 } from "./Main.styled";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 
-export default function Main() {
+export default function Main({ handleLogged }) {
+  handleLogged();
   return (
     <>
       <Header />
