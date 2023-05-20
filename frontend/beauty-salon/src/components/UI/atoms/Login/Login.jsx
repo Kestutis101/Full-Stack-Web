@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { DB_URL } from "../../organisms/Clients/Clients";
 import Header from "../Header/Header";
 
-export default function Login() {
+export default function Login({ handleLogged }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -21,6 +21,7 @@ export default function Login() {
 
       localStorage.setItem("jwtToken", response.data.token);
       navigate("/clients");
+      handleLogged();
     } catch (error) {
       if (error.response.status === 404) {
         setErrorMessage("User with this email not found");
