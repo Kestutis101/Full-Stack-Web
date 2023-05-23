@@ -11,7 +11,7 @@ import {
   StyledButtonDelete,
 } from "./Clients.styled";
 
-export const DB_URL = "full-stack-web-production.up.railway.app/";
+export const DB_URL = "https://full-stack-web-production.up.railway.app/";
 
 export default function Clients() {
   const [users, setUsers] = useState([]);
