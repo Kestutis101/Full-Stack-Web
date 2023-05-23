@@ -41,7 +41,6 @@ export default function Header() {
         </div>
         <nav>
           <Link to='/'>Main Page</Link>
-          <Link to='/signUp'>Register</Link>
           {showCreateClient && <Link to='/createClient'>Create client</Link>}
           {showClients && <Link to='/clients'>Clients</Link>}
           {showLogIn && <Link to='/login'>Log In</Link>}
@@ -50,6 +49,7 @@ export default function Header() {
               Log Out
             </Link>
           )}
+          <Link to='/signUp'>Register</Link>
         </nav>
       </StyledDiv>
     </>
