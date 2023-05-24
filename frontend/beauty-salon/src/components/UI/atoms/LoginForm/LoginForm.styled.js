@@ -82,10 +82,13 @@ export const StyledMainDiv = styled.div`
     font-size: 1.5em;
     a {
       text-decoration: none;
-      color: #ffa201;
-      transition: color 0.4s;
+      color: white;
+      position: relative;
+      top: 0;
+      transition: all 0.3s;
       :hover {
-        color: #755800;
+        color: rgb(186, 131, 41, 0.8);
+        top: -0.2em;
       }
     }
   }

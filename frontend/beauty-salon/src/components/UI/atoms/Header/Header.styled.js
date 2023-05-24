@@ -37,12 +37,12 @@ export const StyledDiv = styled.div`
     margin: 1em;
     font-size: 1.2em;
     text-decoration: none;
-    color: black;
+    color: white;
     position: relative;
     top: 0;
     transition: all 0.3s;
     :hover {
-      color: rgb(142, 97, 31, 0.5);
+      color: rgb(186, 131, 41, 0.9);
       top: -0.2em;
     }
   }
