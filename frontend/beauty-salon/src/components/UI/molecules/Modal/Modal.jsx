@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import moment from "moment";
 import { StyledBackground, StyledCard } from "./Modal.styled";
-import { DB_URL } from "../../organisms/Clients/Clients";
-
-export const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+import { DB_URL } from "../../../../App";
+import { emailPattern } from "../../../../App";
 
 export default function Modal({ user, onClose, show, onUserListUpdate }) {
   const [name, setName] = useState(user.name);

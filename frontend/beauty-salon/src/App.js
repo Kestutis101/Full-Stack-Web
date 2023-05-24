@@ -7,6 +7,9 @@ import CreateClient from "./components/UI/organisms/CreateClient/CreateClient";
 import HandleBadRequest from "./components/UI/atoms/HandleBadRequest/HandleBadRequest";
 import Register from "./components/UI/molecules/Register/Register";
 
+export const DB_URL = "https://full-stack-web-production.up.railway.app/";
+export const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 

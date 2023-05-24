@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { DB_URL } from "../../organisms/Clients/Clients";
-import { StyledForm } from "./CreateClientForm.styled";
 import Header from "../../atoms/Header/Header";
-import { emailPattern } from "../../molecules/Modal/Modal";
+import { useNavigate } from "react-router-dom";
+import { StyledForm } from "./CreateClientForm.styled";
+import { DB_URL } from "../../../../App";
+import { emailPattern } from "../../../../App";
 
 export default function CreateClientForm() {
   const [name, setName] = useState("");

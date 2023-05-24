@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Header from "../../atoms/Header/Header";
 import Modal from "../../molecules/Modal/Modal";
+import Footer from "../../atoms/Footer/Footer";
+import { DB_URL } from "../../../../App";
+
 import {
   StyledMainDiv,
   StyledHeadingOne,
@@ -10,8 +13,6 @@ import {
   StyledButtonEdit,
   StyledButtonDelete,
 } from "./Clients.styled";
-
-export const DB_URL = "https://full-stack-web-production.up.railway.app/";
 
 export default function Clients() {
   const [users, setUsers] = useState([]);
@@ -95,6 +96,7 @@ export default function Clients() {
           onUserListUpdate={fetchUsers}
         />
       )}
+      <Footer />
     </>
   );
 }

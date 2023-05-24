@@ -1,7 +1,9 @@
 body {
-  background-image: url("https://img.freepik.com/free-vector/elegant-abstract-gold-background-with-shiny-elements_23-2148827899.jpg?w=2000");
+  background-image: url("../public/black-concrete-wall.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  opacity: 0.9;
+  color: white;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
