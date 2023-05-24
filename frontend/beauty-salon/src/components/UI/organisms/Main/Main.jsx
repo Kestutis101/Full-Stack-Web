@@ -1,14 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Header from "../../atoms/Header/Header";
 import {
   StyledMainDiv,
   StyledDiv,
   StyledImg,
   StyledImgDiv,
-  StyledIconsDiv,
 } from "./Main.styled";
-import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
+import Footer from "../../atoms/Footer/Footer";
 
 export default function Main({ handleLogged }) {
   handleLogged();
@@ -59,18 +57,7 @@ export default function Main({ handleLogged }) {
             alt='white men in profile picture haircut'
           />
         </StyledImgDiv>
-        <StyledIconsDiv>
-          <Link to='https://www.facebook.com/'>
-            <FaFacebook />
-          </Link>
-          <Link to='https://www.instagram.com/'>
-            <FaInstagram />
-          </Link>
-          <Link to='https://www.linkedin.com/'>
-            <FaLinkedin />
-          </Link>
-        </StyledIconsDiv>
-        <footer>Copyright © 2023, Beauty Salon. All rights reserved.</footer>
+        <Footer />
       </StyledMainDiv>
     </>
   );
